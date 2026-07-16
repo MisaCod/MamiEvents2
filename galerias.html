@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galerías — Mami Events | Fotos recuerdo de tu evento</title>
+  <meta name="description" content="Catálogo de fotos recuerdo de Mami Events: busca tu evento, revive los momentos y descarga tus fotos en alta resolución, gratis y sin links privados.">
+  <link rel="icon" type="image/png" href="assets/isotipo_forest.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Jost:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="supabase-config.js"></script>
+</head>
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- =========================================================
+       NAVIGATION
+       ========================================================= -->
+  <nav class="navbar nav-scrolled" id="navbar">
+    <a href="index.html" class="brand-logo" aria-label="Mami Events — Inicio">
+      <img src="assets/logo_horizontal_forest.png" alt="Mami events">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#esencia">La Marca</a></li>
+      <li><a href="index.html#servicios">Servicios</a></li>
+      <li><a href="index.html#proceso">Proceso</a></li>
+      <li><a href="galerias.html">Galerías</a></li>
+      <li><a href="index.html#proveedores">Proveedores</a></li>
+      <li class="nav-cta-mobile"><a href="https://wa.me/13854635880" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a></li>
+    </ul>
+    <a href="https://wa.me/13854635880" target="_blank" rel="noopener noreferrer" class="nav-cta">Hablemos <span class="nav-cta-arrow">↗</span></a>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menú">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- =========================================================
+       CABECERA DEL CATÁLOGO
+       ========================================================= -->
+  <header class="page-hero">
+    <div class="container">
+      <p class="label-tag reveal">Fotos recuerdo</p>
+      <h1 class="title-lg page-hero-title reveal">¿Estuviste en un evento?<br>Tus fotos <em>te esperan</em>.</h1>
+      <p class="page-hero-note reveal">
+        Busca el evento, revive los momentos y descarga tus fotos en alta
+        resolución — una por una o el álbum completo. Sin registros, sin
+        links privados. Los álbumes privados requieren el PIN que
+        entregamos al cliente del evento.
+      </p>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       CATÁLOGO
+       ========================================================= -->
+  <section class="section section-galeria section-catalogo">
+    <div class="container">
+
+      <div class="galeria-tools reveal">
+        <div class="gallery-search-wrap">
+          <span class="gallery-search-icon" data-icon="search" aria-hidden="true"></span>
+          <input type="search" id="gallerySearch" class="gallery-search" placeholder="Busca tu evento… ej. María 15 años" aria-label="Buscar evento">
+        </div>
+        <div class="filter-chips" id="filterChips">
+          <button class="filter-chip active" data-type="all">Todos</button>
+          <button class="filter-chip" data-type="boda">Bodas</button>
+          <button class="filter-chip" data-type="quinceañera">Quinceaños</button>
+          <button class="filter-chip" data-type="cumpleaños">Cumpleaños</button>
+          <button class="filter-chip" data-type="corporativo">Corporativos</button>
+          <button class="filter-chip" data-type="otro">Otros</button>
+        </div>
+      </div>
+
+      <div class="albums-grid" id="albumsGridContainer">
+        <p class="loading-note">Cargando recuerdos…</p>
+      </div>
+
+      <div class="catalogo-cta reveal">
+        <img src="assets/isotipo_cream.png" alt="" class="catalogo-iso" aria-hidden="true">
+        <p class="lead-serif" style="color: rgba(240,236,225,0.9);">¿No encuentras tu evento o perdiste tu PIN?</p>
+        <a href="https://wa.me/13854635880?text=%C2%A1Hola%20Mami%20Events!%20Busco%20las%20fotos%20de%20mi%20evento" target="_blank" rel="noopener noreferrer" class="btn btn-cream">Escríbenos por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+  <footer class="footer" id="contacto">
+    <div class="marquee marquee-footer" aria-hidden="true">
+      <div class="marquee-track">
+        <span>¡Será un día inolvidable! ✦ Vamos a darle magia a tu evento ✦ Nos ocupamos de todo para que tú solo disfrutes ✦&nbsp;</span>
+        <span>¡Será un día inolvidable! ✦ Vamos a darle magia a tu evento ✦ Nos ocupamos de todo para que tú solo disfrutes ✦&nbsp;</span>
+      </div>
+    </div>
+    <div class="footer-main">
+      <img src="assets/logo_cream.png" alt="Mami events" class="footer-logo">
+      <div class="footer-actions">
+        <a href="https://wa.me/13854635880" target="_blank" rel="noopener noreferrer" class="btn btn-cream">WhatsApp ↗</a>
+        <a href="tel:+13854635880" class="btn btn-ghost-cream">Llamada directa</a>
+      </div>
+      <div class="footer-links">
+        <a href="index.html#esencia">La Marca</a>
+        <a href="index.html#servicios">Servicios</a>
+        <a href="galerias.html">Galerías</a>
+        <a href="index.html#proveedores">Proveedores</a>
+        <a href="admin.html" target="_blank" rel="noopener noreferrer">Admin</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; <span id="currentYear"></span> Mami Events ✦ Creamos momentos que se quedan en el corazón.
+    </div>
+  </footer>
+
+  <!-- Botón flotante WhatsApp -->
+  <a href="https://wa.me/13854635880" target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="Escríbenos por WhatsApp">
+    <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.97-.15.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.16-.48-.27z"/></svg>
+  </a>
+
+  <!-- =========================================================
+       MODALS & OVERLAYS
+       ========================================================= -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+    <div class="lb-header">
+      <div class="lb-title-wrap">
+        <h3 class="lb-title" id="lbTitle">Evento</h3>
+        <span class="lb-meta" id="lbMeta">0 Fotos</span>
+      </div>
+      <button class="lb-close" id="lbClose" aria-label="Cerrar galería">✕</button>
+    </div>
+    <div class="lb-content">
+      <div class="lb-grid" id="lbGrid"></div>
+    </div>
+    <div class="lb-actions-bottom">
+      <button class="btn btn-terra" id="downloadAllBtn">Descargar álbum completo (ZIP)</button>
+    </div>
+  </div>
+
+  <div class="pin-modal" id="pinModal" role="dialog" aria-modal="true">
+    <div class="pin-box">
+      <img src="assets/isotipo_forest.png" alt="" class="pin-iso" aria-hidden="true">
+      <p class="label-tag">Álbum privado</p>
+      <h3 class="pin-title">Ingresa tu código</h3>
+      <input type="password" class="pin-input" id="pinInput" maxlength="4" pattern="\d{4}" placeholder="••••" autocomplete="off">
+      <p id="pinError" class="pin-error">PIN incorrecto. Intenta nuevamente.</p>
+      <div class="pin-actions">
+        <button class="btn btn-ghost" id="cancelPinBtn">Cancelar</button>
+        <button class="btn btn-forest" id="submitPinBtn">Ingresar</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">
+    <span id="toastIcon"></span>
+    <span id="toastMsg">Mensaje</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="icons.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

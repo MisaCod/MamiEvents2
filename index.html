@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mami Events — Creamos momentos que se quedan en el corazón</title>
+  <meta name="description" content="Mami Events: organización, decoración y coordinación de eventos. De un cumpleaños infantil lleno de color a una boda elegante. Nos ocupamos de todo para que tú solo disfrutes.">
+  <link rel="icon" type="image/png" href="assets/isotipo_forest.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Jost:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="supabase-config.js"></script>
+</head>
+<body>
+
+  <!-- Grano / textura vintage -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- =========================================================
+       NAVIGATION
+       ========================================================= -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="brand-logo" aria-label="Mami Events — Inicio">
+      <img src="assets/logo_horizontal_forest.png" alt="Mami events">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#esencia">La Marca</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="galerias.html">Galerías</a></li>
+      <li><a href="#proveedores">Proveedores</a></li>
+      <li class="nav-cta-mobile"><a href="https://wa.me/13854635880" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a></li>
+    </ul>
+    <a href="https://wa.me/13854635880" target="_blank" rel="noopener noreferrer" class="nav-cta">Hablemos <span class="nav-cta-arrow">↗</span></a>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menú">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- =========================================================
+       HERO
+       ========================================================= -->
+  <header class="hero" id="inicio">
+    <svg class="hero-blob" viewBox="0 0 600 600" aria-hidden="true">
+      <path fill="#C89E6B" opacity="0.35" d="M431.5,290.5Q414,331,389.5,364Q365,397,323,412.5Q281,428,240,415Q199,402,160.5,381Q122,360,102,320Q82,280,95.5,238.5Q109,197,135.5,164.5Q162,132,202,112Q242,92,285,99.5Q328,107,367.5,127.5Q407,148,428,199Q449,250,431.5,290.5Z"/>
+    </svg>
+
+    <div class="hero-grid">
+      <div class="hero-content">
+        <p class="hero-kicker reveal">Wedding &amp; Event Planners ✦ Cobertura regional</p>
+        <h1 class="hero-title reveal">
+          Creamos <em>momentos</em><br>
+          que se quedan<br>
+          en el <span class="hero-heart">corazón<svg class="heart-underline" viewBox="0 0 340 24" aria-hidden="true"><path d="M4 18 C 90 4, 250 4, 336 14" fill="none" stroke="#DB5A32" stroke-width="5" stroke-linecap="round"/></svg></span>
+        </h1>
+        <p class="hero-sub reveal">
+          Nos ocupamos de todo para que tú solo disfrutes: desde un cumpleaños
+          infantil lleno de color hasta una boda elegante.
+        </p>
+        <div class="hero-actions reveal">
+          <a href="https://wa.me/13854635880" target="_blank" rel="noopener noreferrer" class="btn btn-terra" id="heroCta">Vamos a darle magia a tu evento</a>
+          <a href="#galeria" class="btn btn-ghost">Ver galerías</a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="hero-arch">
+          <img src="assets/hero_events.png" alt="Montaje de evento por Mami Events">
+        </div>
+        <img src="assets/logo_stamp_terra.png" alt="" class="hero-stamp" aria-hidden="true">
+        <div class="hero-tag">¡Será un día<br>inolvidable!</div>
+      </div>
+    </div>
+
+    <!-- Cinta marquee -->
+    <div class="marquee marquee-terra" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Bodas ✦ Quinceaños ✦ Cumpleaños ✦ Bautizos ✦ Corporativos ✦ Baby Showers ✦ Aniversarios ✦&nbsp;</span>
+        <span>Bodas ✦ Quinceaños ✦ Cumpleaños ✦ Bautizos ✦ Corporativos ✦ Baby Showers ✦ Aniversarios ✦&nbsp;</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       ESENCIA
+       ========================================================= -->
+  <section id="esencia" class="section section-esencia">
+    <div class="container esencia-grid">
+      <div class="esencia-left reveal">
+        <img src="assets/isotipo_forest.png" alt="" class="esencia-iso" aria-hidden="true">
+        <p class="label-tag">La marca</p>
+        <h2 class="title-lg">Amigable,<br><em>cercana</em> y<br>detallista.</h2>
+      </div>
+      <div class="esencia-right">
+        <p class="lead-serif reveal">
+          Somos esa persona que siempre sabe cómo sorprender. Convertimos cada
+          evento en una experiencia única, cuidando cada detalle desde la
+          decoración hasta la organización — coordinamos proveedores, tiempos,
+          orden y montaje para que nada quede al azar.
+        </p>
+        <div class="esencia-values reveal">
+          <div class="value-chip">Creatividad</div>
+          <div class="value-chip">Calidez</div>
+          <div class="value-chip">Organización</div>
+          <div class="value-chip">Memoria</div>
+        </div>
+        <div class="esencia-mv reveal">
+          <div class="mv-box">
+            <h3>Misión</h3>
+            <p>Convertir cada evento en una experiencia única, cuidando cada detalle desde la decoración hasta la organización.</p>
+          </div>
+          <div class="mv-box">
+            <h3>Visión</h3>
+            <p>Ser la aliada de confianza para quienes desean eventos llenos de belleza, orden y recuerdos imborrables.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SERVICIOS — índice editorial con imagen flotante
+       ========================================================= -->
+  <section id="servicios" class="section section-servicios">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="label-tag label-gold">Nuestro arte</p>
+        <h2 class="title-lg">Cada fiesta,<br>una <em>obra propia</em>.</h2>
+        <p class="section-note">Sin paquetes fijos: cada presupuesto se diseña desde cero, a la medida de tu historia. Pasa el cursor por la lista.</p>
+      </div>
+
+      <ul class="work-index" id="workIndex">
+        <li class="work-item reveal" data-img="assets/gallery_wedding.png">
+          <span class="work-num">01</span>
+          <h3 class="work-name">Bodas de autor</h3>
+          <p class="work-desc">Elegancia atemporal que refleja su historia de amor.</p>
+          <span class="work-arrow">⟶</span>
+        </li>
+        <li class="work-item reveal" data-img="assets/gallery_quincea.png">
+          <span class="work-num">02</span>
+          <h3 class="work-name">Quinceaños</h3>
+          <p class="work-desc">Magia, color y detalles que sorprenden a todos.</p>
+          <span class="work-arrow">⟶</span>
+        </li>
+        <li class="work-item reveal" data-img="assets/gallery_birthday.png">
+          <span class="work-num">03</span>
+          <h3 class="work-name">Cumpleaños</h3>
+          <p class="work-desc">Del festejo infantil al aniversario más esperado.</p>
+          <span class="work-arrow">⟶</span>
+        </li>
+        <li class="work-item reveal" data-img="assets/gallery_corporate.png">
+          <span class="work-num">04</span>
+          <h3 class="work-name">Corporativos</h3>
+          <p class="work-desc">Galas y encuentros que proyectan profesionalismo.</p>
+          <span class="work-arrow">⟶</span>
+        </li>
+      </ul>
+      <div class="work-float" id="workFloat" aria-hidden="true"><img src="" alt=""></div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PROCESO — bloque de alto impacto (naranja óxido)
+       ========================================================= -->
+  <div class="wave-top" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path fill="#DA3919" d="M0,60 C240,100 480,0 720,30 C960,60 1200,90 1440,40 L1440,90 L0,90 Z"/></svg>
+  </div>
+  <section id="proceso" class="section section-proceso">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="label-tag label-cream">Cómo trabajamos</p>
+        <h2 class="title-lg">Tú disfrutas.<br><em>Nosotras</em> nos<br>ocupamos de todo.</h2>
+      </div>
+      <div class="proceso-grid">
+        <div class="proceso-step reveal">
+          <span class="proceso-num">1</span>
+          <h3>Primer contacto</h3>
+          <p>Nos escribes por WhatsApp o llamada. Sin formularios eternos ni esperas: conversamos sobre tu visión y tu fecha.</p>
+        </div>
+        <div class="proceso-step reveal">
+          <span class="proceso-num">2</span>
+          <h3>Diseño a medida</h3>
+          <p>Armamos una propuesta y un presupuesto completamente personalizados, desde cero, según lo que sueñas.</p>
+        </div>
+        <div class="proceso-step reveal">
+          <span class="proceso-num">3</span>
+          <h3>Coordinación total</h3>
+          <p>Proveedores, tiempos, orden y montaje: la logística completa queda en nuestras manos.</p>
+        </div>
+        <div class="proceso-step reveal">
+          <span class="proceso-num">4</span>
+          <h3>¡Tu gran día!</h3>
+          <p>Tú ríes, bailas y vives el momento. Nosotras hacemos que todo fluya perfecto.</p>
+        </div>
+      </div>
+      <div class="proceso-cta reveal">
+        <img src="assets/logo_stamp_cream.png" alt="" class="proceso-stamp" aria-hidden="true">
+        <a href="https://wa.me/13854635880" target="_blank" rel="noopener noreferrer" class="btn btn-cream">Agendar asesoría personalizada</a>
+        <a href="tel:+13854635880" class="btn btn-ghost-cream">O llámanos directo</a>
+      </div>
+    </div>
+  </section>
+  <div class="wave-bottom" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path fill="#DA3919" d="M0,30 C240,-10 480,80 720,50 C960,20 1200,0 1440,50 L1440,0 L0,0 Z"/></svg>
+  </div>
+
+  <!-- =========================================================
+       GALERÍAS / PORTAL
+       ========================================================= -->
+  <section id="galeria" class="section section-galeria">
+    <div class="container">
+      <div class="galeria-head">
+        <div class="reveal">
+          <p class="label-tag label-gold">Portal de recuerdos</p>
+          <h2 class="title-lg">Tu evento,<br><em>inmortalizado</em>.</h2>
+        </div>
+        <div class="galeria-head-note reveal">
+          <p>
+            ¿Estuviste en uno de nuestros eventos? Busca tu galería en el catálogo
+            y descarga tus fotos en alta resolución — individuales o el álbum
+            completo en ZIP. Gratis y sin links privados.
+          </p>
+        </div>
+      </div>
+      <div class="albums-grid reveal" id="albumsGridContainer" data-limit="3">
+        <p class="loading-note">Cargando recuerdos…</p>
+      </div>
+      <div class="galeria-more reveal">
+        <a href="galerias.html" class="btn btn-cream">Explorar el catálogo completo ⟶</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       TESTIMONIOS
+       ========================================================= -->
+  <section class="section section-quotes">
+    <div class="container">
+      <img src="assets/isotipo_gold.png" alt="" class="quotes-iso" aria-hidden="true">
+      <div class="quotes-wrap">
+        <blockquote class="quote reveal">
+          <p>“La mejor decisión que tomamos para nuestra boda. Se encargaron de <em>absolutamente todo</em> y el resultado fue más hermoso de lo que imaginamos.”</p>
+          <cite>Andrea &amp; Luis ✦ Boda</cite>
+        </blockquote>
+        <blockquote class="quote reveal">
+          <p>“Transformaron el quinceaños de mi hija en un <em>cuento de hadas</em>. Su calidez y organización son inigualables.”</p>
+          <cite>Familia Rodríguez ✦ Quinceaños</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FAQ
+       ========================================================= -->
+  <section class="section section-faq">
+    <div class="container container-narrow">
+      <div class="section-head reveal">
+        <p class="label-tag">Dudas frecuentes</p>
+        <h2 class="title-lg">Antes de <em>decir que sí</em></h2>
+      </div>
+      <div class="faq-container reveal">
+        <div class="faq-item">
+          <button class="faq-btn">¿Con cuánto tiempo de anticipación debo reservar?<i class="faq-icon">+</i></button>
+          <div class="faq-content">
+            <p>Para bodas sugerimos entre 6 y 8 meses; para otros eventos (cumpleaños, corporativos) de 2 a 3 meses. Así garantizamos disponibilidad y un diseño perfecto.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">¿Hasta dónde se trasladan?<i class="faq-icon">+</i></button>
+          <div class="faq-content">
+            <p>Tenemos cobertura regional: llevamos la magia a cualquier punto del estado, trabajando directamente en el espacio que elijas. Solo coordinamos los gastos logísticos del traslado.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">¿Manejan paquetes con precios fijos?<i class="faq-icon">+</i></button>
+          <div class="faq-content">
+            <p>No — y es a propósito. Cada presupuesto se arma completamente personalizado desde cero según tus requerimientos. Cuéntanos tu idea por WhatsApp y la cotizamos contigo.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">¿Puedo contratar solo la decoración?<i class="faq-icon">+</i></button>
+          <div class="faq-content">
+            <p>Claro que sí. Somos totalmente flexibles y evaluamos cada caso de manera independiente: desde la producción completa hasta solo el diseño y la ambientación.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-cta reveal">
+        <p class="lead-serif">¿Otra pregunta?</p>
+        <a href="https://wa.me/13854635880" target="_blank" rel="noopener noreferrer" class="btn btn-terra">Escríbenos por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PROVEEDORES
+       ========================================================= -->
+  <section id="proveedores" class="section section-proveedores">
+    <div class="container proveedores-grid">
+      <div class="proveedores-intro reveal">
+        <p class="label-tag label-gold">Convocatoria abierta</p>
+        <h2 class="title-lg">¿Quieres ser<br>parte de la<br><em>magia</em>?</h2>
+        <p class="proveedores-note">
+          Buscamos los mejores talentos: fotógrafos, catering, mobiliario,
+          floristas, músicos y más. Déjanos tus datos y entrarás a nuestra
+          base de aliados para futuros eventos.
+        </p>
+        <img src="assets/logo_stamp_forest.png" alt="" class="proveedores-stamp" aria-hidden="true">
+      </div>
+
+      <form id="supplierForm" class="supplier-form reveal">
+        <div class="form-group">
+          <label for="supName">Nombre completo *</label>
+          <input type="text" id="supName" class="form-input" placeholder="Tu nombre" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="supEmpresa">Empresa</label>
+            <input type="text" id="supEmpresa" class="form-input" placeholder="Opcional">
+          </div>
+          <div class="form-group">
+            <label for="supTel">Teléfono / WhatsApp *</label>
+            <input type="tel" id="supTel" class="form-input" placeholder="+58 …" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="supTipo">¿Qué servicio ofreces? *</label>
+          <select id="supTipo" class="form-input" required>
+            <option value="" disabled selected>Selecciona una categoría</option>
+            <option value="fotografia">Fotografía / Video</option>
+            <option value="catering">Catering / Repostería</option>
+            <option value="mobiliario">Mobiliario / Toldos</option>
+            <option value="florista">Diseño Floral</option>
+            <option value="musica">Música / DJ</option>
+            <option value="iluminacion">Iluminación / Efectos</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="supPortafolio">Portafolio o Instagram</label>
+          <input type="url" id="supPortafolio" class="form-input" placeholder="https://…">
+        </div>
+        <div class="form-group">
+          <label for="supMensaje">Cuéntanos sobre tu trabajo *</label>
+          <textarea id="supMensaje" class="form-input" placeholder="Tu experiencia, estilo, zona de trabajo…" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-forest btn-block" id="supBtn">Enviar postulación ✦</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+  <footer class="footer" id="contacto">
+    <div class="marquee marquee-footer" aria-hidden="true">
+      <div class="marquee-track">
+        <span>¡Será un día inolvidable! ✦ Vamos a darle magia a tu evento ✦ Nos ocupamos de todo para que tú solo disfrutes ✦&nbsp;</span>
+        <span>¡Será un día inolvidable! ✦ Vamos a darle magia a tu evento ✦ Nos ocupamos de todo para que tú solo disfrutes ✦&nbsp;</span>
+      </div>
+    </div>
+    <div class="footer-main">
+      <img src="assets/logo_cream.png" alt="Mami events" class="footer-logo">
+      <div class="footer-actions">
+        <a href="https://wa.me/13854635880" target="_blank" rel="noopener noreferrer" class="btn btn-cream">WhatsApp ↗</a>
+        <a href="tel:+13854635880" class="btn btn-ghost-cream">Llamada directa</a>
+      </div>
+      <div class="footer-links">
+        <a href="#esencia">La Marca</a>
+        <a href="#servicios">Servicios</a>
+        <a href="galerias.html">Galerías</a>
+        <a href="#proveedores">Proveedores</a>
+        <a href="admin.html" target="_blank" rel="noopener noreferrer">Admin</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; <span id="currentYear"></span> Mami Events ✦ Creamos momentos que se quedan en el corazón.
+    </div>
+  </footer>
+
+  <!-- Botón flotante WhatsApp -->
+  <a href="https://wa.me/13854635880" target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="Escríbenos por WhatsApp">
+    <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.97-.15.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.16-.48-.27z"/></svg>
+  </a>
+
+  <!-- =========================================================
+       MODALS & OVERLAYS (funcionalidad de galerías)
+       ========================================================= -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+    <div class="lb-header">
+      <div class="lb-title-wrap">
+        <h3 class="lb-title" id="lbTitle">Evento</h3>
+        <span class="lb-meta" id="lbMeta">0 Fotos</span>
+      </div>
+      <button class="lb-close" id="lbClose" aria-label="Cerrar galería">✕</button>
+    </div>
+    <div class="lb-content">
+      <div class="lb-grid" id="lbGrid"></div>
+    </div>
+    <div class="lb-actions-bottom">
+      <button class="btn btn-terra" id="downloadAllBtn">Descargar álbum completo (ZIP)</button>
+    </div>
+  </div>
+
+  <div class="pin-modal" id="pinModal" role="dialog" aria-modal="true">
+    <div class="pin-box">
+      <img src="assets/isotipo_forest.png" alt="" class="pin-iso" aria-hidden="true">
+      <p class="label-tag">Álbum privado</p>
+      <h3 class="pin-title">Ingresa tu código</h3>
+      <input type="password" class="pin-input" id="pinInput" maxlength="4" pattern="\d{4}" placeholder="••••" autocomplete="off">
+      <p id="pinError" class="pin-error">PIN incorrecto. Intenta nuevamente.</p>
+      <div class="pin-actions">
+        <button class="btn btn-ghost" id="cancelPinBtn">Cancelar</button>
+        <button class="btn btn-forest" id="submitPinBtn">Ingresar</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">
+    <span id="toastIcon"></span>
+    <span id="toastMsg">Mensaje</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="icons.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

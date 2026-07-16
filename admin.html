@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel Admin — Mami Events</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+  <!-- =========================================================
+       LOGIN SCREEN
+       ========================================================= -->
+  <div class="login-screen" id="loginScreen">
+    <div class="login-card">
+      <div class="login-logo"><img src="assets/logo_forest.png" alt="Mami events"></div>
+      <div class="login-subtitle">Panel de Administración</div>
+
+      <form class="login-form" id="loginForm" novalidate>
+        <div class="form-group">
+          <label for="loginEmail">Correo electrónico</label>
+          <input type="email" id="loginEmail" placeholder="mamievents752@gmail.com" required autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Contraseña</label>
+          <input type="password" id="loginPassword" placeholder="••••••••" required autocomplete="current-password" />
+        </div>
+        <p class="login-error" id="loginError" role="alert">Credenciales incorrectas. Intenta de nuevo.</p>
+        <button type="submit" class="login-btn" id="loginBtn">
+          <span id="loginBtnText">Ingresar al panel</span>
+        </button>
+      </form>
+
+      <a href="index.html" class="login-back">← Volver al sitio web</a>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       ADMIN LAYOUT (shown after login)
+       ========================================================= -->
+  <div class="admin-layout" id="adminLayout">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar" id="adminSidebar" role="navigation" aria-label="Menú de administración">
+      <div class="sidebar-header">
+        <div class="sidebar-logo"><img src="assets/logo_horizontal_cream.png" alt="Mami events"></div>
+        <div class="sidebar-role">Panel Admin</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-section">Principal</div>
+        <button class="sidebar-link active" data-panel="dashboard" id="navDashboard">
+          <span class="icon" data-icon="chart"></span> Dashboard
+        </button>
+        <button class="sidebar-link" data-panel="albums" id="navAlbums">
+          <span class="icon" data-icon="folder"></span> Álbumes de Fotos
+          <span class="sidebar-badge" id="albumCountBadge">0</span>
+        </button>
+        <button class="sidebar-link" data-panel="upload" id="navUpload">
+          <span class="icon" data-icon="upload"></span> Subir Fotos
+        </button>
+
+        <div class="sidebar-section">Gestión</div>
+        <button class="sidebar-link" data-panel="suppliers" id="navSuppliers">
+          <span class="icon" data-icon="users"></span> Proveedores
+          <span class="sidebar-badge" id="supplierCountBadge" style="background:var(--gold); color: var(--black);">0</span>
+        </button>
+
+        <div class="sidebar-section">Accesos</div>
+        <a href="index.html" class="sidebar-link" target="_blank" rel="noopener noreferrer">
+          <span class="icon" data-icon="globe"></span> Ver sitio web
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="user-avatar" id="userAvatar">M</div>
+          <div class="user-email" id="userEmail">admin@mamievents.com</div>
+        </div>
+        <button class="logout-btn" id="logoutBtn">
+          <span class="icon" data-icon="logout"></span> Cerrar sesión
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+
+      <!-- Topbar -->
+      <div class="admin-topbar">
+        <div class="topbar-left">
+          <button class="sidebar-toggle" id="sidebarToggle" aria-label="Abrir menú">
+            <span></span><span></span>
+          </button>
+          <div class="topbar-title" id="topbarTitle">Dashboard</div>
+        </div>
+        <div class="topbar-actions">
+          <button class="btn-admin btn-terra" id="newAlbumTopBtn">
+            + Nuevo Álbum
+          </button>
+        </div>
+      </div>
+
+      <div class="admin-content">
+
+        <!-- ===== DASHBOARD PANEL ===== -->
+        <div class="panel active" id="panelDashboard">
+          <div class="stat-cards">
+            <div class="stat-card">
+              <div class="stat-card-icon green" data-icon="folder"></div>
+              <div>
+                <div class="stat-card-value" id="statAlbums">0</div>
+                <div class="stat-card-label">Álbumes publicados</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card-icon orange" data-icon="image"></div>
+              <div>
+                <div class="stat-card-value" id="statPhotos">0</div>
+                <div class="stat-card-label">Fotos totales</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card-icon blue" data-icon="users"></div>
+              <div>
+                <div class="stat-card-value" id="statSuppliers">0</div>
+                <div class="stat-card-label">Postulaciones</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card-icon gold" data-icon="lock"></div>
+              <div>
+                <div class="stat-card-value" id="statPrivate">0</div>
+                <div class="stat-card-label">Álbumes privados</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Últimos álbumes</span>
+              <button class="btn-admin btn-outline-admin" data-panel="albums" id="seeAllAlbums">Ver todos</button>
+            </div>
+            <div class="card-body" style="padding:0;">
+              <table class="albums-table" id="dashboardAlbumsTable">
+                <thead>
+                  <tr>
+                    <th>Portada</th>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>Fotos</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="dashboardAlbumsBody">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== ALBUMS PANEL ===== -->
+        <div class="panel" id="panelAlbums">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem;">
+            <h2 style="font-family: var(--font-display); font-size:1.5rem; font-weight:700; color:var(--forest);">
+              Todos los álbumes
+            </h2>
+            <button class="btn-admin btn-terra" id="newAlbumBtn2">+ Nuevo Álbum</button>
+          </div>
+
+          <div class="card">
+            <div class="card-body" style="padding:0;">
+              <table class="albums-table" id="fullAlbumsTable">
+                <thead>
+                  <tr>
+                    <th>Portada</th>
+                    <th>Nombre del Álbum</th>
+                    <th>Tipo</th>
+                    <th>Fecha</th>
+                    <th>Fotos</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="fullAlbumsBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== UPLOAD PANEL ===== -->
+        <div class="panel" id="panelUpload">
+          <h2 style="font-family:var(--font-display); font-size:1.5rem; font-weight:700; color:var(--forest); margin-bottom:1.5rem;">
+            Subir Fotos
+          </h2>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:1.5rem;">
+            <!-- Event info -->
+            <div class="card">
+              <div class="card-header">
+                <span class="card-title">Información del Evento</span>
+              </div>
+              <div class="card-body">
+                <div class="admin-form-group">
+                  <label class="admin-label" for="uploadAlbumSelect">Álbum existente o nuevo</label>
+                  <select class="admin-select" id="uploadAlbumSelect">
+                    <option value="new">+ Crear nuevo álbum</option>
+                  </select>
+                </div>
+
+                <div id="newAlbumFields">
+                  <div class="admin-form-group">
+                    <label class="admin-label" for="newAlbumName">Nombre del evento *</label>
+                    <input class="admin-input" type="text" id="newAlbumName" placeholder="Ej: Quinceañera de Valentina" />
+                  </div>
+                  <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem;">
+                    <div class="admin-form-group">
+                      <label class="admin-label" for="newAlbumType">Tipo de evento *</label>
+                      <select class="admin-select" id="newAlbumType">
+                        <option value="quinceañera">Quinceañera</option>
+                        <option value="boda">Boda</option>
+                        <option value="cumpleaños">Cumpleaños</option>
+                        <option value="corporativo">Corporativo</option>
+                        <option value="otro">Otro</option>
+                      </select>
+                    </div>
+                    <div class="admin-form-group">
+                      <label class="admin-label" for="newAlbumDate">Fecha</label>
+                      <input class="admin-input" type="month" id="newAlbumDate" />
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display:flex; flex-direction:column; gap:0; background:var(--gray-light); border-radius:10px; padding:0.5rem 1rem;">
+                  <div class="toggle-row">
+                    <div>
+                      <div class="toggle-label">Publicar álbum</div>
+                      <div class="toggle-desc">Visible en el sitio web público</div>
+                    </div>
+                    <label class="toggle">
+                      <input type="checkbox" id="togglePublish" checked />
+                      <span class="toggle-slider"></span>
+                    </label>
+                  </div>
+                  <div class="toggle-row" style="border:none;">
+                    <div>
+                      <div class="toggle-label">Álbum privado con PIN</div>
+                      <div class="toggle-desc">Solo visible con código de acceso</div>
+                    </div>
+                    <label class="toggle">
+                      <input type="checkbox" id="togglePrivate" />
+                      <span class="toggle-slider"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <div id="pinField" style="display:none; margin-top:1rem;">
+                  <div class="admin-form-group" style="margin:0;">
+                    <label class="admin-label" for="albumPinInput">PIN de 4 dígitos</label>
+                    <input class="admin-input" type="text" id="albumPinInput" maxlength="4" pattern="\d{4}" placeholder="1234" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Upload zone -->
+            <div class="card">
+              <div class="card-header">
+                <span class="card-title">Subir Fotos</span>
+              </div>
+              <div class="card-body">
+                <label class="upload-zone" id="uploadZone" for="fileInput" aria-label="Zona de carga de fotos">
+                  <span class="upload-icon" data-icon="upload" aria-hidden="true"></span>
+                  <div class="upload-title">Arrastra las fotos aquí</div>
+                  <div class="upload-subtitle">o haz clic para seleccionar</div>
+                  <div class="upload-subtitle" style="margin-top:0.5rem; font-size:0.75rem;">
+                    JPG, PNG, WEBP • Múltiples fotos permitidas
+                  </div>
+                  <input type="file" id="fileInput" multiple accept="image/*" />
+                </label>
+
+                <div class="upload-progress" id="uploadProgress"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Preview grid -->
+          <div class="card" id="previewCard" style="display:none;">
+            <div class="card-header">
+              <span class="card-title">Vista previa (<span id="previewCount">0</span> fotos)</span>
+              <div style="display:flex; gap:0.75rem;">
+                <button class="btn-admin btn-danger" id="clearPhotosBtn">Limpiar todo</button>
+                <button class="btn-admin btn-forest-admin" id="saveAlbumBtn">
+                  Guardar álbum
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="photos-preview" id="photosPreview"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== SUPPLIERS PANEL ===== -->
+        <div class="panel" id="panelSuppliers">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem;">
+            <h2 style="font-family:var(--font-display); font-size:1.5rem; font-weight:700; color:var(--forest);">
+              Postulaciones de Proveedores
+            </h2>
+            <button class="btn-admin btn-outline-admin" id="exportSuppliersBtn">
+              <span class="icon" data-icon="download"></span> Exportar CSV
+            </button>
+          </div>
+
+          <div class="suppliers-grid-admin" id="suppliersAdminGrid">
+            <!-- Filled by JS -->
+          </div>
+
+          <div id="noSuppliersMsg" style="text-align:center; padding:3rem; color:var(--gray-soft); display:none;">
+            <div class="no-suppliers-icon" data-icon="inbox"></div>
+            <p>No hay postulaciones aún. Cuando alguien complete el formulario del sitio, aparecerá aquí.</p>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ===== MODAL: New / Edit Album ===== -->
+  <div class="admin-modal" id="albumModal" role="dialog" aria-modal="true" aria-label="Crear nuevo álbum">
+    <div class="modal-box">
+      <div class="modal-header">
+        <span class="modal-title" id="modalTitle">Nuevo Álbum</span>
+        <button class="modal-close" id="modalClose" aria-label="Cerrar">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="admin-form-group">
+          <label class="admin-label" for="modalAlbumName">Nombre del álbum *</label>
+          <input class="admin-input" type="text" id="modalAlbumName" placeholder="Ej: Boda de Andrea & Luis" />
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+          <div class="admin-form-group">
+            <label class="admin-label" for="modalAlbumType">Tipo de evento *</label>
+            <select class="admin-select" id="modalAlbumType">
+              <option value="quinceañera">Quinceañera</option>
+              <option value="boda">Boda</option>
+              <option value="cumpleaños">Cumpleaños</option>
+              <option value="corporativo">Corporativo</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div class="admin-form-group">
+            <label class="admin-label" for="modalAlbumDate">Fecha del evento</label>
+            <input class="admin-input" type="month" id="modalAlbumDate" />
+          </div>
+        </div>
+        <div style="background:var(--gray-light); border-radius:10px; padding:0.5rem 1rem;">
+          <div class="toggle-row">
+            <div>
+              <div class="toggle-label">Publicar en el sitio</div>
+              <div class="toggle-desc">Visible para todos los visitantes</div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="modalTogglePublish" checked />
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="toggle-row" style="border:none;">
+            <div>
+              <div class="toggle-label">Activar PIN privado</div>
+              <div class="toggle-desc">Solo con código de acceso</div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="modalTogglePrivate" />
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+        <div id="modalPinField" style="display:none; margin-top:1rem;">
+          <div class="admin-form-group" style="margin:0;">
+            <label class="admin-label" for="modalPinInput">PIN de acceso (4 dígitos)</label>
+            <input class="admin-input" type="text" id="modalPinInput" maxlength="4" pattern="\d{4}" placeholder="1234" />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-admin btn-outline-admin" id="modalCancelBtn">Cancelar</button>
+        <button class="btn-admin btn-forest-admin" id="modalSaveBtn">Crear álbum</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Toast -->
+  <div class="admin-toast" id="adminToast" role="status" aria-live="polite">
+    <span id="adminToastIcon"></span>
+    <span id="adminToastMsg">Mensaje</span>
+  </div>
+
+  <script src="supabase-config.js"></script>
+  <script src="icons.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
