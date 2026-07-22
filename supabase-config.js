@@ -151,7 +151,7 @@ async function loadPublicAlbums(client) {
         title:       album.title,
         type:        album.type,
         date:        formatSupabaseDate(album.date),
-        coverImage:  album.cover_image || (album.photos?.[0]?.url) || 'assets/gallery_quincea.png',
+        coverImage:  album.cover_image || (album.photos?.[0]?.url) || 'assets/gallery_quincea.jpg',
         photoCount:  album.photo_count || album.photos?.length || 0,
         isPrivate:   album.is_private,
         isPublished: album.is_published,

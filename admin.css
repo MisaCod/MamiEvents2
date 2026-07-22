@@ -11,8 +11,8 @@
   --cream-soft:  #F7F4EC;
   --forest:      #2C4E3A;
   --forest-light:#3A6B4F;
-  --terracotta:  #DB5A32;
-  --fire:        #DA3919;
+  --terracotta:  #CD7154;   /* tono suavizado */
+  --fire:        #D05137;   /* tono suavizado */
   --gold:        #C89E6B;
   --white:       #FFFFFF;
   --black:       #22392C;
@@ -22,7 +22,7 @@
   --border:      #E0D9C8;
   --success:     #4a7c59;
   --warning:     #C89E6B;
-  --danger:      #DA3919;
+  --danger:      #D05137;
 
   --font-display: 'Fraunces', Georgia, serif;
   --font-sans:    'Jost', system-ui, sans-serif;

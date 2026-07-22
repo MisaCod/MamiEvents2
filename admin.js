@@ -68,14 +68,14 @@ function getDemoAlbums() {
       title: 'Quinceañera de Valentina',
       type: 'quinceañera',
       date: '2025-06',
-      coverImage: 'assets/gallery_quincea.png',
+      coverImage: 'assets/gallery_quincea.jpg',
       photoCount: 48,
       isPrivate: false,
       isPublished: true,
       pin: null,
       photos: [
-        { url: 'assets/gallery_quincea.png', caption: 'Quinceañera', name: 'foto1.jpg' },
-        { url: 'assets/gallery_wedding.png', caption: 'Arreglos', name: 'foto2.jpg' }
+        { url: 'assets/gallery_quincea.jpg', caption: 'Quinceañera', name: 'foto1.jpg' },
+        { url: 'assets/gallery_wedding.jpg', caption: 'Arreglos', name: 'foto2.jpg' }
       ]
     },
     {
@@ -83,14 +83,14 @@ function getDemoAlbums() {
       title: 'Boda de Andrea & Luis',
       type: 'boda',
       date: '2025-05',
-      coverImage: 'assets/gallery_wedding.png',
+      coverImage: 'assets/gallery_wedding.jpg',
       photoCount: 120,
       isPrivate: false,
       isPublished: true,
       pin: null,
       photos: [
-        { url: 'assets/gallery_wedding.png', caption: 'Boda', name: 'foto1.jpg' },
-        { url: 'assets/gallery_corporate.png', caption: 'Mesa', name: 'foto2.jpg' }
+        { url: 'assets/gallery_wedding.jpg', caption: 'Boda', name: 'foto1.jpg' },
+        { url: 'assets/gallery_corporate.jpg', caption: 'Mesa', name: 'foto2.jpg' }
       ]
     },
     {
@@ -98,24 +98,24 @@ function getDemoAlbums() {
       title: 'Gala Corporativa Tech 2025',
       type: 'corporativo',
       date: '2025-04',
-      coverImage: 'assets/gallery_corporate.png',
+      coverImage: 'assets/gallery_corporate.jpg',
       photoCount: 35,
       isPrivate: false,
       isPublished: true,
       pin: null,
-      photos: [{ url: 'assets/gallery_corporate.png', caption: 'Gala', name: 'foto1.jpg' }]
+      photos: [{ url: 'assets/gallery_corporate.jpg', caption: 'Gala', name: 'foto1.jpg' }]
     },
     {
       id: 'album-004',
       title: 'Quinceañera de Isabella',
       type: 'quinceañera',
       date: '2025-02',
-      coverImage: 'assets/gallery_quincea.png',
+      coverImage: 'assets/gallery_quincea.jpg',
       photoCount: 89,
       isPrivate: true,
       isPublished: true,
       pin: '1234',
-      photos: [{ url: 'assets/gallery_quincea.png', caption: 'Isabella', name: 'foto1.jpg' }]
+      photos: [{ url: 'assets/gallery_quincea.jpg', caption: 'Isabella', name: 'foto1.jpg' }]
     }
   ];
 }
@@ -222,7 +222,7 @@ async function loadAlbumsFromDB() {
         title:       a.title,
         type:        a.type,
         date:        a.date || '',
-        coverImage:  a.cover_image || (a.photos?.[0]?.url) || 'assets/gallery_quincea.png',
+        coverImage:  a.cover_image || (a.photos?.[0]?.url) || 'assets/gallery_quincea.jpg',
         photoCount:  a.photo_count || a.photos?.length || 0,
         isPrivate:   a.is_private,
         isPublished: a.is_published,
@@ -497,7 +497,7 @@ modalSaveBtn.addEventListener('click', async () => {
       title:       name,
       type,
       date,
-      coverImage:  'assets/gallery_quincea.png',
+      coverImage:  'assets/gallery_quincea.jpg',
       photoCount:  0,
       isPublished,
       isPrivate,
@@ -877,5 +877,5 @@ checkExistingSession();
 console.log(
   '%c mami events admin %c\nModo: ' + (window.supabaseClient ? 'Supabase ✅' : 'Demo (localStorage) ⚠️'),
   'background: #2C4E3A; color: #C89E6B; padding: 4px 10px; border-radius: 4px; font-weight: bold;',
-  'color: #DB5A32;'
+  'color: #CD7154;'
 );

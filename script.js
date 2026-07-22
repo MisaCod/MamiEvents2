@@ -18,13 +18,13 @@ const DEMO_ALBUMS = [
     title: 'Quinceañera de Valentina',
     type: 'quinceañera',
     date: 'Junio 2025',
-    coverImage: 'assets/gallery_quincea.png',
+    coverImage: 'assets/gallery_quincea.jpg',
     photoCount: 2,
     isPrivate: false,
     pin: null,
     photos: [
-      { url: 'assets/gallery_quincea.png', caption: 'Valentina 15', name: 'v1.jpg' },
-      { url: 'assets/gallery_wedding.png', caption: 'Decoración', name: 'v2.jpg' }
+      { url: 'assets/gallery_quincea.jpg', caption: 'Valentina 15', name: 'v1.jpg' },
+      { url: 'assets/gallery_wedding.jpg', caption: 'Decoración', name: 'v2.jpg' }
     ]
   },
   {
@@ -32,22 +32,22 @@ const DEMO_ALBUMS = [
     title: 'Boda de Andrea & Luis',
     type: 'boda',
     date: 'Mayo 2025',
-    coverImage: 'assets/gallery_wedding.png',
+    coverImage: 'assets/gallery_wedding.jpg',
     photoCount: 1,
     isPrivate: false,
     pin: null,
-    photos: [{ url: 'assets/gallery_wedding.png', caption: 'La Boda', name: 'boda.jpg' }]
+    photos: [{ url: 'assets/gallery_wedding.jpg', caption: 'La Boda', name: 'boda.jpg' }]
   },
   {
     id: 'demo-3',
     title: 'Gala Corporativa Tech',
     type: 'corporativo',
     date: 'Abril 2025',
-    coverImage: 'assets/gallery_corporate.png',
+    coverImage: 'assets/gallery_corporate.jpg',
     photoCount: 1,
     isPrivate: false,
     pin: null,
-    photos: [{ url: 'assets/gallery_corporate.png', caption: 'Gala', name: 'gala.jpg' }]
+    photos: [{ url: 'assets/gallery_corporate.jpg', caption: 'Gala', name: 'gala.jpg' }]
   }
 ];
 
@@ -105,7 +105,7 @@ function triggerConfetti() {
   const count = 150;
   const defaults = {
     origin: { y: 0.6 },
-    colors: ['#DB5A32', '#DA3919', '#C89E6B', '#2C4E3A', '#F0ECE1']
+    colors: ['#CD7154', '#D05137', '#C89E6B', '#2C4E3A', '#F0ECE1']
   };
 
   function fire(particleRatio, opts) {
@@ -145,54 +145,11 @@ const revealObserver = new IntersectionObserver((entries) => {
 $$('.reveal').forEach(el => revealObserver.observe(el));
 
 // ============================================================
-// SERVICIOS — imagen flotante que sigue el cursor
+// SERVICIOS — clic en un servicio → WhatsApp con mensaje prellenado
 // ============================================================
 const workIndex = $('#workIndex');
-const workFloat = $('#workFloat');
 
-if (workIndex && workFloat && window.matchMedia('(hover: hover)').matches) {
-  const floatImg = workFloat.querySelector('img');
-  let mouseX = 0, mouseY = 0, curX = 0, curY = 0, rafId = null;
-
-  function animateFloat() {
-    curX += (mouseX - curX) * 0.12;
-    curY += (mouseY - curY) * 0.12;
-    workFloat.style.left = `${curX - 150}px`;
-    workFloat.style.top = `${curY - 200}px`;
-    rafId = requestAnimationFrame(animateFloat);
-  }
-
-  workIndex.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
-
-  $$('.work-item').forEach(item => {
-    item.addEventListener('mouseenter', () => {
-      floatImg.src = item.dataset.img;
-      workFloat.classList.add('visible');
-      if (!rafId) {
-        curX = mouseX; curY = mouseY;
-        animateFloat();
-      }
-    });
-  });
-
-  workIndex.addEventListener('mouseleave', () => {
-    workFloat.classList.remove('visible');
-    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
-  });
-
-  // Click en un servicio → WhatsApp con mensaje prellenado
-  $$('.work-item').forEach(item => {
-    item.addEventListener('click', () => {
-      const service = item.querySelector('.work-name').textContent.trim();
-      const msg = encodeURIComponent(`¡Hola Mami Events! Quiero información sobre: ${service}`);
-      window.open(`https://wa.me/13854635880?text=${msg}`, '_blank', 'noopener');
-    });
-  });
-} else if (workIndex) {
-  // Móvil: click directo a WhatsApp
+if (workIndex) {
   $$('.work-item').forEach(item => {
     item.addEventListener('click', () => {
       const service = item.querySelector('.work-name').textContent.trim();
