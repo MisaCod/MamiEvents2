@@ -173,16 +173,34 @@ const revealObserver = new IntersectionObserver((entries) => {
 $$('.reveal').forEach(el => revealObserver.observe(el));
 
 // ============================================================
-// SERVICIOS — clic en un servicio → WhatsApp con mensaje prellenado
+// SERVICIOS — desplegar descripción al tocar / hacer clic
 // ============================================================
 const workIndex = $('#workIndex');
 
 if (workIndex) {
   $$('.work-item').forEach(item => {
-    item.addEventListener('click', () => {
-      const service = item.querySelector('.work-name').textContent.trim();
-      const msg = encodeURIComponent(`¡Hola Mami Events! Quiero información sobre: ${service}`);
-      window.open(`https://wa.me/13854635880?text=${msg}`, '_blank', 'noopener');
+    item.addEventListener('click', (e) => {
+      // Si el clic fue en el botón de contacto o cualquier enlace, permitir navegación
+      if (e.target.closest('.btn-work-contact') || e.target.closest('a')) {
+        return;
+      }
+      // Si el clic ocurrió dentro de los detalles (por ej. leyendo o seleccionando texto), no alternamos
+      if (e.target.closest('.work-details')) {
+        return;
+      }
+
+      const wasOpen = item.classList.contains('is-open');
+
+      // Cerrar otros servicios abiertos para mantener una vista limpia estilo acordeón
+      $$('.work-item').forEach(other => {
+        if (other !== item) other.classList.remove('is-open');
+      });
+
+      if (!wasOpen) {
+        item.classList.add('is-open');
+      } else {
+        item.classList.remove('is-open');
+      }
     });
   });
 }
